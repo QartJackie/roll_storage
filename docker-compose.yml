@@ -1,0 +1,24 @@
+version: '1'
+
+volumes:
+  postgres_data:
+  static:
+
+services:
+  db:
+    image: postgres:13.10
+    env_file: .env
+    volumes:
+      - postgres_data:/var/lib/posgresql/data
+
+  backend:
+    build: ./roll_storage_backend/
+    env_file: .env
+    volumes:
+      - static:/static
+    depends_on:
+      - db
+  gateway:
+    build: ./gateway/
+    ports:
+      - 8000:80 
