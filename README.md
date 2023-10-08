@@ -14,10 +14,9 @@ Nginx
 
 #### Запуск проекта:
 Клонируйте репозиторий и подготовьте сервер, при оркестрации контенеров, учтите уже имеющуюся настройку nginx, для маршрутизации запросов:
+Запустить билд контейнеров:
 ```
-docker-compose.production.yml <username>@<host>:/home/<username>/roll_storage/
-nginx.conf <username>@<host>:/home/<username>/roll_storage/
-.env <username>@<host>:/home/<username>/roll_storage/
+docker-compose.yml up --build
 ```
 
 Установите docker и docker-compose:
